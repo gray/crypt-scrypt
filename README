@@ -18,6 +18,7 @@ This module requires these other modules and libraries:
 
     Test::More
     XSLoader
+    libcrypto (openssl)
 
 A C compiler is required to build this module.
 
