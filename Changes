@@ -1,4 +1,8 @@
 Revision history for Crypt-Scrypt
 
+0.02  Thu Apr 21 19:35:50 UTC 2011
+    - Linked in librt library, when found.
+    - Installed libscrypt outside of LT_OBJDIR, for portability.
+
 0.01  Thu Apr 21 01:55:31 UTC 2011
     - Initial distribution.
