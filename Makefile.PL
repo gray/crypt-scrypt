@@ -5,9 +5,9 @@ use ExtUtils::MakeMaker;
 use lib qw(inc);
 use Devel::CheckLib;
 
-check_lib_or_exit(
-    lib => [qw(crypto)],
-);
+check_lib_or_exit(lib => [qw( crypto )]);
+
+my $librt = check_lib(lib => [qw( rt )]) ? '-lrt' : '';
 
 my %conf = (
     NAME           => 'Crypt::Scrypt',
@@ -22,7 +22,7 @@ my %conf = (
     DEFINE   => '-DHAVE_CONFIG_H',
     INC      => '-Isrc -Isrc/src -Isrc/src/lib/crypto'
               . ' -Isrc/src/lib/scryptenc -Isrc/src/lib/util',
-    LIBS     => '-lcrypto',
+    LIBS     => "-lcrypto $librt",
     MYEXTLIB => 'src/.libs/libscrypt$(LIB_EXT)',
 
     META_MERGE => {
