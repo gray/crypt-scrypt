@@ -18,12 +18,12 @@ my %conf = (
     PREREQ_PM      => { XSLoader => 0, },
     BUILD_REQUIRES => { 'Test::More' => 0.82, },
 
+    MYEXTLIB => 'src/lib/libscrypt$(LIB_EXT)',
     CCFLAGS  => '-Wall',
     DEFINE   => '-DHAVE_CONFIG_H',
     INC      => '-Isrc -Isrc/src -Isrc/src/lib/crypto'
               . ' -Isrc/src/lib/scryptenc -Isrc/src/lib/util',
     LIBS     => "-lcrypto $librt",
-    MYEXTLIB => 'src/.libs/libscrypt$(LIB_EXT)',
 
     META_MERGE => {
         resources => {
@@ -49,13 +49,13 @@ WriteMakefile(%conf);
 sub MY::postamble {
     return <<"    MAKE_FRAG";
 \$(MYEXTLIB): src/Makefile
-\tcd src && \$(MAKE) \$(PASSTHRU)
+\tcd src && \$(MAKE) install-libLTLIBRARIES \$(PASSTHRU)
 
 src/Makefile:
-\tcd src && ./configure
+\tcd src && ./configure --prefix=\$(PWD)/src
 
 clean::
-\tcd src && \$(MAKE) distclean
+\tcd src && rm -rf lib && \$(MAKE) distclean
 
 authortest:
 \t\$(MAKE) -e \$(TEST_TYPE) TEST_FILES="xt/*.t"
