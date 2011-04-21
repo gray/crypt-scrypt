@@ -1,0 +1,17 @@
+*.l[ao]
+*.o
+Crypt-Scrypt-*
+MANIFEST.bak
+Makefile
+Makefile.old
+Scrypt.bs
+Scrypt.c
+Scrypt.o
+blib/
+pm_to_blib
+src/.deps
+src/.libs
+src/config.h
+src/config.status
+src/libtool
+src/stamp-h1
