@@ -17,6 +17,7 @@ my %conf = (
     ABSTRACT_FROM  => 'lib/Crypt/Scrypt.pm',
     PREREQ_PM      => { XSLoader => 0, },
     BUILD_REQUIRES => { 'Test::More' => 0.82, },
+    CONFIG         => [qw( archname )],
 
     MYEXTLIB => 'src/lib/libscrypt$(LIB_EXT)',
     CCFLAGS  => '-Wall',
@@ -47,12 +48,14 @@ WriteMakefile(%conf);
 
 
 sub MY::postamble {
+    my $self = shift;
+    my $fpic = $self->{ARCHNAME} =~ /x86_64/ ? '-fPIC' : '';
     return <<"    MAKE_FRAG";
 \$(MYEXTLIB): src/Makefile
 \tcd src && \$(MAKE) install-libLTLIBRARIES \$(PASSTHRU)
 
 src/Makefile:
-\tcd src && ./configure --prefix=\$(PWD)/src
+\tcd src && CFLAGS=$fpic ./configure --prefix=\$(PWD)/src
 
 clean::
 \tcd src && rm -rf lib && \$(MAKE) distclean
