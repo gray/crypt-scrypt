@@ -1,5 +1,8 @@
 Revision history for Crypt-Scrypt
 
+0.03  Mon Apr 25 19:49:58 UTC 2011
+    - Fixed compilation on x86_64 by adding -fPIC flag.
+
 0.02  Thu Apr 21 19:35:50 UTC 2011
     - Linked in librt library, when found.
     - Installed libscrypt outside of LT_OBJDIR, for portability.
