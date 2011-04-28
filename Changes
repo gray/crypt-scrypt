@@ -1,5 +1,8 @@
 Revision history for Crypt-Scrypt
 
+0.04  Thu Apr 28 12:35:50 UTC 2011
+    - Updated test for -fPIC flag to include archnames with amd64.
+
 0.03  Mon Apr 25 19:49:58 UTC 2011
     - Fixed compilation on x86_64 by adding -fPIC flag.
 
