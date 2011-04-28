@@ -49,7 +49,7 @@ WriteMakefile(%conf);
 
 sub MY::postamble {
     my $self = shift;
-    my $fpic = $self->{ARCHNAME} =~ /x86_64/ ? '-fPIC' : '';
+    my $fpic = $self->{ARCHNAME} =~ /(?:x86_|amd)64/ ? '-fPIC' : '';
     return <<"    MAKE_FRAG";
 \$(MYEXTLIB): src/Makefile
 \tcd src && \$(MAKE) install-libLTLIBRARIES \$(PASSTHRU)
