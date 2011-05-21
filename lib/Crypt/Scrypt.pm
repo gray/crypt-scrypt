@@ -189,7 +189,7 @@ any value provided to the constructor. Croaks on failure.
 
 L<http://www.tarsnap.com/scrypt.html>
 
-L<http://git.chromium.org/gitweb/?p=libscrypt.git;a=tree>
+L<http://git.chromium.org/gitweb/?p=chromiumos/third_party/libscrypt.git;a=tree>
 
 =head1 REQUESTS AND BUGS
 
