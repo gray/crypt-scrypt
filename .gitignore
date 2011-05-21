@@ -2,6 +2,7 @@
 *.o
 Crypt-Scrypt-*
 MANIFEST.bak
+MYMETA.yml
 Makefile
 Makefile.old
 Scrypt.bs
