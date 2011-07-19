@@ -5,7 +5,13 @@ use Crypt::Scrypt;
 
 for my $pair (['', ''], [qw(plaintext key)]) {
     my ($in, $key) = @$pair;
-    my $ciphertext = Crypt::Scrypt->encrypt($in, key => $key);
+
+    local $@;
+    my $ciphertext = eval { Crypt::Scrypt->encrypt($in, key => $key) };
+    if ($@) {
+        plan skip_all => qq(scrypt doesn't appear to work on this system: $@);
+    }
+
     is(length($ciphertext), 128 + length($in), 'length of ciphertext');
     my $plaintext = Crypt::Scrypt->decrypt(
         $ciphertext, key => $key, max_time => 30, max_mem_frac => 0.5
