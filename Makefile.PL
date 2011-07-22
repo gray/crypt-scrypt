@@ -20,7 +20,6 @@ my %conf = (
     CONFIG         => [qw( archname )],
 
     MYEXTLIB => 'src/lib/libscrypt$(LIB_EXT)',
-    CCFLAGS  => '-Wall',
     DEFINE   => '-DHAVE_CONFIG_H',
     INC      => '-Isrc -Isrc/src -Isrc/src/lib/crypto'
               . ' -Isrc/src/lib/scryptenc -Isrc/src/lib/util',
