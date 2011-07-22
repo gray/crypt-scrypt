@@ -1,5 +1,9 @@
 Revision history for Crypt-Scrypt
 
+0.05  Fri Jul 22 08:32:34 UTC 2011
+    - Skipped tests if scrypt doesn't work on the system.
+    - Removed -Wall compiler flag.
+
 0.04  Thu Apr 28 12:35:50 UTC 2011
     - Updated test for -fPIC flag to include archnames with amd64.
 

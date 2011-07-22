@@ -6,7 +6,7 @@ use warnings;
 use Carp qw(croak);
 use XSLoader;
 
-our $VERSION    = '0.04';
+our $VERSION    = '0.05';
 our $XS_VERSION = $VERSION;
 $VERSION = eval $VERSION;
 
